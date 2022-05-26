@@ -51,13 +51,15 @@ public static class Builder
     static void GenericBuild(string[] scenes, string target_dir, BuildTarget build_target, BuildOptions build_options)
     {
         EditorUserBuildSettings.SwitchActiveBuildTarget(build_target);
+        
+        Debug.Log($"Building to {target_dir}");
 
         var options = new BuildPlayerOptions()
         {
             scenes = scenes,
             options = build_options,
             target = build_target,
-            locationPathName = $"{target_dir}/App.exe"
+            locationPathName = $"{target_dir}/{PlayerSettings.productName}.exe"
         };
 
         var res = BuildPipeline.BuildPlayer(options);
