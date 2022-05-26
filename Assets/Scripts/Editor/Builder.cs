@@ -14,8 +14,24 @@ public static class Builder
     [MenuItem("Builder/Build Windows")]
     static void PerformWinBuild()
     {
-        string target_dir = APP_NAME + ".app";
-        GenericBuild(SCENES, TARGET_DIR + "/" + target_dir, BuildTarget.StandaloneWindows64, BuildOptions.None);
+        GenericBuild(SCENES, GetTargetDir(), BuildTarget.StandaloneWindows64, BuildOptions.None);
+    }
+
+    private static string GetTargetDir()
+    {
+        var args = Environment.GetCommandLineArgs();
+
+        for (int i = 0; i < args.Length; i++)
+        {
+            if (args[i].Contains("executeMethod"))
+            {
+                return args[i + 2];
+            }
+        }
+        
+        Debug.LogError("Build path is not specified");
+
+        return null;
     }
 
     private static string[] FindEnabledEditorScenes()
