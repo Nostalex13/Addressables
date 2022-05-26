@@ -12,7 +12,7 @@ public static class Builder
     static string TARGET_DIR = "D:/Downloads/";
 
     [MenuItem("Builder/Build Windows")]
-    static void PerformMacOSXBuild()
+    static void PerformWinBuild()
     {
         string target_dir = APP_NAME + ".app";
         GenericBuild(SCENES, TARGET_DIR + "/" + target_dir, BuildTarget.StandaloneWindows64, BuildOptions.None);
