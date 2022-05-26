@@ -57,7 +57,7 @@ public static class Builder
             scenes = scenes,
             options = build_options,
             target = build_target,
-            locationPathName = target_dir
+            locationPathName = $"{target_dir}/App.exe"
         };
 
         var res = BuildPipeline.BuildPlayer(options);
