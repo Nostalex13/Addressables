@@ -51,6 +51,7 @@ public static class Builder
     static void GenericBuild(string[] scenes, string target_dir, BuildTarget build_target, BuildOptions build_options)
     {
         EditorUserBuildSettings.SwitchActiveBuildTarget(build_target);
+        
         Debug.Log($"Building to {target_dir}");
 
         var options = new BuildPlayerOptions()
